@@ -60,13 +60,13 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # To open applications that I open the most
-set $mode_launcher Choose: [f]irefox [g]files [s]ettings [t]odo [e]mails [d]iscord [w]hatspp [m]ongodb-compass [T]eams [S]potify
+set $mode_launcher Choose: [z]en [g]files [s]ettings [t]odo [e]mails [d]iscord [w]hatspp [m]ongodb-compass [T]eams [S]potify 
 
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher"{
 
-	bindsym f exec firefox
+	bindsym z exec flatpak run io.github.zen_browser.zen 
 	bindsym g exec nautilus
 	bindsym s exec gnome-control-center
  	bindsym t exec gnome-todo
