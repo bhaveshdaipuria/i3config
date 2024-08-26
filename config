@@ -16,7 +16,7 @@ for_window [class=".*"] border pixel 3
 gaps inner 11
 gaps outer 11
 # To ignore gaps when there is only one window in the workspace
-smart_gaps on
+smart_gaps off
 
 client.focused          #0b9ea3 #0b9ea3 #0b9ea3 #0b9ea3 
 client.unfocused        #808080 #808080 #808080 #808080  
@@ -60,16 +60,15 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # To open applications that I open the most
-set $mode_launcher Choose: [f]irefox [g]files [s]ettings [t]odo [e]mails [d]iscord [w]hatspp [m]ongodb-compass [T]eams [S]potify
+set $mode_launcher Choose: [z]en [g]files [t]odo [e]mails [d]iscord [w]hatspp [m]ongodb-compass [T]eams [S]potify 
 
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher"{
 
-	bindsym f exec firefox
+	bindsym z exec flatpak run io.github.zen_browser.zen 
 	bindsym g exec nautilus
-	bindsym s exec gnome-control-center
- 	bindsym t exec gnome-todo
+ 	bindsym t exec errands
 	bindsym e exec thunderbird
 	bindsym d exec discord
 	bindsym w exec whatsapp-for-linux
@@ -163,7 +162,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -260,5 +259,5 @@ bindsym $mod+r mode "resize"
 # For using polybar 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-exec --no-startup-id feh --bg-fill ~/Desktop/wallpapers/random_kid_anime.jpg
+exec --no-startup-id feh --bg-fill ~/Desktop/wallpapers/snowy-mountain-peak-starry-galaxy-majesty-generative-ai.jpg
 exec --no-startup-id picom --experimental-backends -b
