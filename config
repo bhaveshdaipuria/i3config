@@ -59,22 +59,20 @@ bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
-# To open applications that I open the most
-set $mode_launcher Choose: [z]en [g]files [t]odo [e]mails [d]iscord [w]hatspp [m]ongodb-compass [T]eams [S]potify 
+# To open applications that I use the most
+set $mode_launcher Choose: [z]en [f]iles [t]odo [e]mails [w]hatspp [s]potify [g]oogle 
 
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher"{
 
 	bindsym z exec flatpak run io.github.zen_browser.zen 
-	bindsym g exec nautilus
+	bindsym f exec nautilus
  	bindsym t exec errands
 	bindsym e exec thunderbird
-	bindsym d exec discord
 	bindsym w exec whatsapp-for-linux
-	bindsym m exec mongodb-compass
-	bindsym Shift+s exec spotify
-	bindsym Shift+t exec teams-for-linux 
+	bindsym s exec spotify
+	bindsym g exec google-chrome
 
 	bindsym Escape mode "default" 
 	bindsym Return mode "default"
@@ -90,6 +88,24 @@ mode "$icloud_launcher"{
 	bindsym d exec icloud-for-linux.drive
 	bindsym p exec icloud-for-linux.pages
 	bindsym i exec icloud-for-linux.photos
+
+	bindsym Escape mode "default" 
+	bindsym Return mode "default"
+}
+
+# To open heavy applications/softwares
+set $softwares Choose: [g]imp [d]roidcam [o]bs [t]eams [d]iscord [m]ongodb-compass
+
+bindsym $mod+w mode $softwares
+
+mode "$softwares"{
+	
+	bindsym t exec teams-for-linux 
+	bindsym o exec flatpak run com.obsproject.Studio
+	bindsym g exec flatpak run org.gimp.GIMP
+	bindsym c exec droidcam
+	bindsym d exec discord
+	bindsym m exec mongodb-compass
 
 	bindsym Escape mode "default" 
 	bindsym Return mode "default"
@@ -247,6 +263,7 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+bindsym $mod+Shift+f exec flameshot gui
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
